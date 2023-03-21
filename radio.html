@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Radio buttons and Buzzfeed-type quiz</title>
+</head>
+<body>
+<form onsubmit="return showChoices(this)">
+What do you like to do on a day off?<br/>
+	<input type="radio" name="energy" value="high">Go for a run<br/>
+	<input type="radio" name="energy" value="med">Walk in the park<br/>
+	<input type="radio" name="energy" value="low">Chill at home<br/>
+<br/>
+
+What is the most important trait in a dog?<br/>
+	<input type="radio" name="trait" value="protect">Be protective of me<br/>
+	<input type="radio" name="trait" value="cuddle">Cuddle with me<br/>
+	<input type="radio" name="trait" value="cute">Just be cute<br/>
+<br/>
+
+
+<input type="submit" value="Tell me what kind of dog!">
+</form>
+
+<!-- Place the result on the HTML page -->
+<p id="doggie"></p>
+
+<script TYPE="text/javascript">
+	
+function showChoices(frm) {
+	var radioArray1 = frm.energy;
+	var radioArray2 = frm.trait;
+
+// Console Log will show the array (captured from the HTML radio buttons with the name "energy", for example)
+	console.log(radioArray1);
+
+// Loop through the array to find the selected radio button value
+
+
+	for(i=0; i < radioArray1.length; i++){
+	
+// if the radio is checked, set value1 to the value of that radio
+		if(radioArray1[i].checked) {
+			var value1;
+			value1 = radioArray1[i].value;
+			console.log(value1);
+		}
+	}
+
+
+// Loop again for 'traits'
+	for(i=0; i < radioArray2.length; i++){
+		if(radioArray2[i].checked) {
+			var value2;
+			value2 = radioArray2[i].value;
+			console.log(value2);
+		}
+	}
+
+
+// Compute the dog type based on the variable
+
+
+
+var dogType;
+
+	if (value1 == "med" && value2 == "protect"){
+		dogType = "Akita";
+	} else if (value1 == "high") {
+		dogType = "Greyhound"; 
+	} else if (value1 == "low") {
+		dogType = "Chihuahua";
+	} else {
+		dogType = "You didn't make a selection."
+	}
+
+
+// Write the result on the HTML page
+console.log(dogType);
+
+document.getElementById("doggie").innerHTML = dogType;
+
+// Leave this at the end
+	return false;
+}
+
+
+</script>
+
+
+</body>
+</html>
